@@ -1,32 +1,29 @@
 var _nycda = _nycda || {};
 _nycda.conditional = function (condition, runIfTrue) {
-    console.log('_nycda.conditional ------------');
 
     if(!runIfTrue) throw new Error('runIfTrue is either undefined or null');
     
     function runIf(){
         if(condition()){
-            console.log('condition() is true');
             return runIfTrue.apply(this, arguments);
         }
     }
-    function runIfConditionArgs(){
+    function conditionHasArgsRunIf(){
         if(condition.apply(this, arguments)){
-            console.log('condition() is true');
             return runIfTrue();
         }
     }
 
     if(condition){
-        console.log('condition was passed in');
+
+        // this seems a bit hacky b/c now condition can be passed
+        // args or runIfTrue, but not both
         if (condition.length > 0){
-            console.log('condition.length > 0');
-            return runIfConditionArgs;
+            return conditionHasArgsRunIf;
         }else{
             return runIf;
         }
     }else{
-        console.log('condition is null || undefined');
         return runIfTrue;
     }
 };

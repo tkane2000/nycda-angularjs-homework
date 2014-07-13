@@ -1,4 +1,4 @@
-    describe("_nycda.conditional", function () {
+describe("_nycda.conditional", function () {
     var condition, runIfTrue;
 
     it("Should throw an error when passed undefined for the function to be run after the condition", function () {
