@@ -1,4 +1,4 @@
-describe("_nycda.get", function () {
+ddescribe("_nycda.get", function () {
     it("Should return undefined if the map is so", function () {
         expect(_nycda.get(undefined, "name")).toBeUndefined();
     });

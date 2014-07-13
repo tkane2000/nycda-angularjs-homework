@@ -1,4 +1,4 @@
-describe("_nycda.conditional", function () {
+    describe("_nycda.conditional", function () {
     var condition, runIfTrue;
 
     it("Should throw an error when passed undefined for the function to be run after the condition", function () {
@@ -96,6 +96,7 @@ describe("_nycda.conditional", function () {
             return 1;
         };
         runIfTrue = function (argA, argB, argC) {
+            console.log('argA: ' + argA);
             return argA + argC - argB;
         };
 
@@ -111,6 +112,7 @@ describe("_nycda.conditional", function () {
         };
         runIfTrue = function () {
             timesRun += 1;
+            console.log('timesRun: ' + timesRun);
         };
 
         /* Call the returned function */
