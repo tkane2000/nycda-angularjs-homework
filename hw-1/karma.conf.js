@@ -18,6 +18,17 @@ module.exports = function(config) {
       'test/*-spec.js'
     ],
 
+/*    plugins:[
+     // 'karma-jasmine',
+     // 'karma-requirejs',
+     // 'karma-coverage',
+     // 'karma-junit-reporter',
+     'karma-phantomjs-launcher',
+     'karma-chrome-launcher',
+     'karma-firefox-launcher',
+     // 'karma-ie-launcher'
+     ],
+*/
 
     // list of files to exclude
     exclude: [
@@ -55,7 +66,7 @@ module.exports = function(config) {
     // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
     // - PhantomJS
     // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // If browser does not capture in given timeout [ms], kill it
