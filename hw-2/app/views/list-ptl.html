@@ -7,7 +7,11 @@
                 ng-repeat="q in questions"
                 ng-class="getRowClass(q)"
                 ng-click="onSelectQuestion(q)">
-                <td>{{q.question}}</td>
+                <td class="col-xs-9">{{q.question}}</td>
+                <td class="col-xs-3"
+                    ng-class="getAnswerMsgClass(q)">
+                    {{q.status}}
+                </td>
             </tr>
             </tbody>
         </table>
