@@ -1,5 +1,5 @@
 angular.module('questions', []).constant('Data', {
-    answerMessages: {
+    statusMessages: {
         unanswered: 'unanswered',
         answeredCorrectly: 'Correct!',
         answeredIncorrectly: 'Wrong! :('
@@ -7,7 +7,7 @@ angular.module('questions', []).constant('Data', {
     questions: [
         {
             question: 'How often do you watch sports?',
-            status: 'unanswered', // TODO: use answerMessages data
+            status: 'unanswered', // TODO: use statusMessages data
             options: [
                 {value: 'Everyday'},
                 {value: 'Often'},

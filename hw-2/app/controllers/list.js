@@ -3,7 +3,7 @@ angular.module('questions').controller('List',
         function ($scope, data) {
             $scope.selectedQuestion = null;
             $scope.questions = data.questions;
-            $scope.answerMessages = data.answerMessages;
+            $scope.statusMessages = data.statusMessages;
 
             $scope.onSelectQuestion = function (question) {
                 $scope.selectedQuestion = question;
