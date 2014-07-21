@@ -13,7 +13,4 @@ angular.module('questions').controller('List',
                 return question && question.answer ? 'success' : '';
             };
 
-            $scope.getAnswerMsgClass = function (question) {
-                return question && question.answer ? 'success' : '';
-            };
         }]);

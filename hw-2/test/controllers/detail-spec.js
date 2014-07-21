@@ -5,9 +5,9 @@ describe("Detail", function () {
     beforeEach(module('questions'));
     beforeEach(inject(function ($rootScope, $controller) {
         $scope = $rootScope.$new();
-        $scope.statusMessages = {
+        $scope.statusMessages = { // Mock
             unanswered: 'unanswered',
-            answeredCorrectly: 'Correct!',
+            answeredCorrectly: 'Correct! :)',
             answeredIncorrectly: 'Wrong! :('
         };
         controller = $controller('Detail', {$scope: $scope});
@@ -28,10 +28,10 @@ describe("Detail", function () {
             $scope.onSelectAnswer(question, option);
             expect(question.answer).toEqual(option);
         });
-        
+
         it("Should set the question's status message to let us know we answered correctly", function () {
             $scope.onSelectAnswer(question, option);
-            expect(question.status).toEqual('Correct!'); // TODO: grab value from Data.statusMessages (or do we need to Mock this?)
+            expect(question.status).toEqual($scope.statusMessages.answeredCorrectly);
         });
 
     });
