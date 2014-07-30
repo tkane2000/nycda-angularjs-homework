@@ -18,6 +18,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'bower_components/lodash/dist/lodash.compat.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-animate/angular-animate.js',
@@ -46,14 +47,15 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
-      'PhantomJS'
+      'Chrome'
     ],
 
     // Which plugins to enable
-    plugins: [
-      'karma-phantomjs-launcher',
-      'karma-jasmine'
-    ],
+    // plugins: [
+    //   'karma-phantomjs-launcher',
+    //   'karma-phantomjs-launcher',
+    //   'karma-jasmine'
+    // ],
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit

@@ -22,4 +22,3 @@ angular
     queryString: 'api-key=052861d142cf4eb7fa12bb79781fdbe1:11:69591426&response-format=json'
   });
 
-

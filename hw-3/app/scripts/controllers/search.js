@@ -27,4 +27,3 @@ angular.module('hw3App')
 
       $scope.onSearch = _.debounce(_search, 500);
   }]);
-
