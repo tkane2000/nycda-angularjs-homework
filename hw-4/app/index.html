@@ -8,10 +8,12 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/nvd3/src/nv.d3.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+      <link rel="stylesheet" href="bower_components/nvd3/nv.d3.css">
+      <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
   <body ng-app="hw3App">
@@ -20,39 +22,26 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-controller="SearchCtrl">
-        <form role="form">
+    <div class="container">
+        <form role="form"
+              ng-controller="SearchCtrl">
             <div class="form-group col-xs-12 col-md-9">
                    <input type="text"
                        class="form-control"
                        placeholder="Article Search"
-                       ng-model="search.query"
-                       ng-keyup="onSearch(search)"
-                       >
+                       ng-model="searchTerm">
             </div>
-            <!-- <div class="form-group col-xs-12 col-md-3">
+            <div class="form-group col-xs-12 col-md-3">
                 <button type="submit"
-                        class="btn btn-danger">Search NYT Articles
+                        class="btn btn-danger"
+                        ng-click="onSearch(searchTerm)">Search NYT Articles
                 </button>
             </div>
-
-             ng-show="results != undefined"
-            -->
-        </form>
-        <ul class="col-xs-12 list-unstyled ng-cloak" ng-cloak>
-          <li ng-repeat="item in results.response.docs">
-            <h3 class="col-xs-12">{{item.headline.main}}</h3>
-            <img
-              ng-hide="!item.multimedia[0].url"
-              class="col-xs-3"
-              src="http://nytimes.com/{{item.multimedia[0].url}}"
-              width="{{item.multimedia[0].width}}"
-              /> <!-- height="{{item.multimedia[0].height}}" -->
-            <p ng-class="item.multimedia[0].url ? 'col-xs-9' : 'col-xs-12'">
-              {{item.abstract}}
+            <p ng-repeat="a in articles.list" ng-click="onSelectArticle(a)">
+                <a>{{a.headline.main}}</a>
             </p>
-          </li>
-        </ul>
+        </form>
+        <ng-include src="'views/word-count-analysis.html'"></ng-include>
     </div>
 
 
@@ -78,7 +67,6 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js"></script>
@@ -98,13 +86,28 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
+    <script src="bower_components/angularfire/angularfire.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/nvd3/nv.d3.js"></script>
+    <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
+    <script src="bower_components/momentjs/moment.js"></script>
+    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/services/search-query.js"></script>
         <script src="scripts/controllers/search.js"></script>
+    <script src="scripts/angularfire/config.js"></script>
+    <script src="scripts/services/firebase.js"></script>
+        <script src="scripts/controllers/testfb.js"></script>
+        <script src="scripts/controllers/word-count-analysis.js"></script>
+        <script src="scripts/services/new-york-times.js"></script>
+        <script src="scripts/services/articles.js"></script>
+    <script src="scripts/firebase-models/saved-article.js"></script>
         <!-- endbuild -->
 </body>
 </html>

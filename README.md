@@ -73,6 +73,13 @@ We will go over some ideas in class, and we will have some more time throughout 
 
 Integrating APIs and data services.
 
+###Requirements
+In order to install the required dependencies, make sure your run these commands:
+```
+cd hw-3
+npm install
+bower install
+```
 
 ###Assignment
 Implement article search, using the New York Times API:
@@ -83,3 +90,26 @@ API Key: 052861d142cf4eb7fa12bb79781fdbe1:11:69591426
 A standard application would show a search field and a search button the screen (think Google). 
 When a search is run, it should pull in the remote result and display them on the screen. I encourage you to
 use Yeoman to generate the project structure. 
+
+##Homework 4
+
+Integrating Firebase with your New York Times application.
+
+###Requirements
+In order to install the required dependencies, make sure your run these commands:
+```
+cd hw-4
+npm install
+bower install
+```
+
+We will start prep on the assignment by creating your firebase account at firebase.com. 
+
+When you have the name of your db instance, you need to replace the string 'nycda-instance' in the following project file:
+
+apps/scripts/angularfire/config.js
+
+
+###Assignment
+Add the ability for the user of your New York Times feed to save articles in a side bar. The articles need to be saved to firebase.
+

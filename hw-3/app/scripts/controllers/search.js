@@ -7,6 +7,7 @@
  * # SearchCtrl
  * Controller of the hw3App
  */
+
 angular.module('hw3App')
   .controller('SearchCtrl', ['$scope', '_', 'nyTimesQuery',
     function ($scope, _, queryFactory) {
@@ -28,4 +29,3 @@ angular.module('hw3App')
       $scope.onSearch = _.debounce(_search, 500);
 
   }]);
-
