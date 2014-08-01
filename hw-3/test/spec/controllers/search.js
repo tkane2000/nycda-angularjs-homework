@@ -20,20 +20,42 @@ describe('Controller: SearchCtrl', function () {
     $httpBackend = $injector.get('$httpBackend');
     nyTimesQuery = $injector.get('nyTimesQuery');
     $httpBackend.when('GET', url).respond(200, mockFeed);
-    lodash = $injector.get('_'); // FIXME: this doesn't work :(  _ is set as a constant in app.  how do I inject lodash?
+
+    lodash = $injector.get('_');
     scope = $rootScope.$new();
 
-    // SearchCtrl = $controller('SearchCtrl', {
-    //   $scope: scope,
-    //   _: lodash,
-    //   nyTimesQuery: nyTimesQuery
-    // });
+    SearchCtrl = $controller('SearchCtrl', {
+      $scope: scope,
+      _: lodash,
+      nyTimesQuery: nyTimesQuery
+    });
   }));
 
   it('should update only after 500 millisecond', function () {
-    // scope.onSearch(searchQuery);
-    // expect(scope.results).toBeDefined();
-    expect('').toBeDefined();
+
+    scope.onSearch(searchQuery);
+    expect(scope.results).toBeUndefined();
+
+    // wait for debounce, then test
+    setTimeout(function() {
+      $httpBackend.flush();
+      // TODO: could there still be timing issues here?
+      expect(scope.results).toBeDefined();
+    }, 550);
+
+  });
+
+  it("should return the correct data", function() {
+
+    scope.onSearch(searchQuery);
+    expect(scope.results).toBeUndefined();
+
+    // wait for debounce, then test
+    setTimeout(function() {
+      $httpBackend.flush();
+      expect(scope.results.foo).toEqual(mockFeed.foo);
+    }, 550);
+
   });
 
 });

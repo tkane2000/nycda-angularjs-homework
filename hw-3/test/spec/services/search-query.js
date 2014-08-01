@@ -16,20 +16,12 @@ describe('Service: nyTimesQuery', function () {
 
   // Mock $http
   beforeEach(inject(function ($injector) {
-
     $httpBackend = $injector.get('$httpBackend');
-
     nyTimesQuery = $injector.get('nyTimesQuery');
-
     $httpBackend.when('GET', url).respond(200, mockFeed);
-
-
   }));
 
   it('should update only after 500 millisecond', function () {
-
-    // expect(nyTimesQuery).toBeDefined();
-    // expect($httpBackend).toBeDefined();
 
     nyTimesQuery.getFeed(searchQuery.query)
       .then(function(results){
