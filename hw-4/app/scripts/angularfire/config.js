@@ -14,4 +14,4 @@ angular.module('hw3App')
   .constant('loginProviders', '')
 
   // your Firebase URL goes here
-  .constant('FBURL', 'https://nycda-instance.firebaseio.com');
+  .constant('FBURL', 'https://blinding-fire-6341.firebaseio.com');

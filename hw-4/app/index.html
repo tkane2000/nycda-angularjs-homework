@@ -24,7 +24,8 @@
     <!-- Add your site or application content here -->
     <div class="container">
         <form role="form"
-              ng-controller="SearchCtrl">
+              ng-controller="SearchCtrl"
+              class="col-sm-8">
             <div class="form-group col-xs-12 col-md-9">
                    <input type="text"
                        class="form-control"
@@ -34,14 +35,16 @@
             <div class="form-group col-xs-12 col-md-3">
                 <button type="submit"
                         class="btn btn-danger"
-                        ng-click="onSearch(searchTerm)">Search NYT Articles
+                        ng-click="onSearch(searchTerm)">
+                        Search NYT Articles
                 </button>
             </div>
-            <p ng-repeat="a in articles.list" ng-click="onSelectArticle(a)">
+            <p ng-repeat="a in articles.list" ng-click="onSelectArticle(a)" class="article-link">
                 <a>{{a.headline.main}}</a>
             </p>
         </form>
-        <ng-include src="'views/word-count-analysis.html'"></ng-include>
+        <ng-include src="'views/saved-article-list.html'" class="col-sm-4"></ng-include>
+        <!-- <ng-include src="'views/word-count-analysis.html'" class="col-sm-12"></ng-include> -->
     </div>
 
 
@@ -87,9 +90,8 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
-    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
     <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
-    <script src="bower_components/angularfire/angularfire.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
     <script src="bower_components/d3/d3.js"></script>
     <script src="bower_components/nvd3/nv.d3.js"></script>
     <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
@@ -109,5 +111,9 @@
         <script src="scripts/services/articles.js"></script>
     <script src="scripts/firebase-models/saved-article.js"></script>
         <!-- endbuild -->
+
+    <script src="scripts/controllers/saved-article-list.js"></script>
+
+
 </body>
 </html>

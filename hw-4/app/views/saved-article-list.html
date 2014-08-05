@@ -1,0 +1,6 @@
+<section ng-controller="SavedArticleList" id="saved-article-list">
+    <h3>My Saved Articles</h3>
+    <ul>
+        <li ng-repeat="a in savedArticles">{{a.headline.print_headline}}</li>
+    </ul>
+</section>
