@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name hw3App.controller:SearchCtrl
+ * @name hw4App.controller:SearchCtrl
  * @description
  * # SearchCtrl
- * Controller of the hw3App
+ * Controller of the hw4App
  */
-angular.module('hw3App')
+angular.module('hw4App')
     .controller('SearchCtrl', ['$scope', 'newYorkTimes', 'articles', 'SavedArticle',  
         function ($scope, newYorkTimes, articles, savedArticle) {
             $scope.articles = articles;

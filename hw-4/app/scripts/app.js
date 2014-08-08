@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name hw3App
+ * @name hw4App
  * @description
- * # hw3App
+ * # hw4App
  *
  * Main module of the application.
  */
 angular
-  .module('hw3App', [
+  .module('hw4App', [
     'firebase',
     'angularfire.firebase',
     'ngAnimate',

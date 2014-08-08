@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name hw3App.controller:WordCountAnalysisCtrl
+ * @name hw4App.controller:WordCountAnalysisCtrl
  * @description
  * # WordCountAnalysisCtrl
- * Controller of the hw3App
+ * Controller of the hw4App
  */
-angular.module('hw3App')
+angular.module('hw4App')
     .controller('WordCountAnalysisCtrl',
     ['$scope', 'articles',
         function ($scope, articles) {

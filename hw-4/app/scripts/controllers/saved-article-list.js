@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name hw3App.controller:SavedArticleList
+ * @name hw4App.controller:SavedArticleList
  * @description
  * # SavedArticleList
- * Controller of the hw3App
+ * Controller of the hw4App
  */
-angular.module('hw3App')
+angular.module('hw4App')
     .controller('SavedArticleList', ['$scope', 'SavedArticle',
         function ($scope, savedArticle) {
             var ref = savedArticle.sync();

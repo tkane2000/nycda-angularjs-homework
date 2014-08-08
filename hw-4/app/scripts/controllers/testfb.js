@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name hw3App.controller:TestfbCtrl
+ * @name hw4App.controller:TestfbCtrl
  * @description
  * # TestfbCtrl
- * Controller of the hw3App
+ * Controller of the hw4App
  */
-angular.module('hw3App')
+angular.module('hw4App')
     .controller('TestfbCtrl',
     ['$scope', 'firebaseRef', 'syncData',
         function ($scope, firebaseRef, syncData) {

@@ -3,7 +3,7 @@
 describe('Service: DudeValues', function () {
 
   // load the service's module
-  beforeEach(module('hw3App'));
+  beforeEach(module('hw4App'));
 
   // instantiate service
   var DudeValues;

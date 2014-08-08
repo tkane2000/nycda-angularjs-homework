@@ -3,7 +3,7 @@
 describe('Controller: SearchCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('hw3App'));
+  beforeEach(module('hw4App'));
 
   var SearchCtrl,
     scope;

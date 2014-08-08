@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc service
- * @name hw3App.articles
+ * @name hw4App.articles
  * @description
  * # articles
- * Value in the hw3App.
+ * Value in the hw4App.
  */
-angular.module('hw3App')
+angular.module('hw4App')
   .value('articles', {});

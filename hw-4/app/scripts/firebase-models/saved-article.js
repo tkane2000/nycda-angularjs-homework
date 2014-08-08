@@ -1,4 +1,4 @@
-angular.module('hw3App').factory('SavedArticle',
+angular.module('hw4App').factory('SavedArticle',
     ['firebaseRef', 'syncData', function (firebaseRef, syncData) {
         var _url = '/savedarticles', 
             _ref = firebaseRef(_url);

@@ -3,7 +3,7 @@
 describe('Controller: TestfbCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('hw3App'));
+  beforeEach(module('hw4App'));
 
   var TestfbCtrl,
     scope;

@@ -2,19 +2,19 @@
 
 /**
  * @ngdoc service
- * @name hw3App.newYorkTimes
+ * @name hw4App.newYorkTimes
  * @description
  * # newYorkTimes
- * Factory in the hw3App.
+ * Factory in the hw4App.
  */
-angular.module('hw3App').value('articlesTransformer', function (articles) {
+angular.module('hw4App').value('articlesTransformer', function (articles) {
     articles = JSON.parse(articles);
     if (articles.response && articles.response.docs) {
         return articles.response.docs;
     }
     return articles;
 });
-angular.module('hw3App')
+angular.module('hw4App')
     .factory('newYorkTimes', ['$http', 'articlesTransformer',
         function ($http, articlesTransformer) {
         // Public API here
