@@ -8,7 +8,8 @@ angular.module('hw4App').factory('SavedArticle',
                 return _ref.push(article);
             },
             sync: function () {
-                return syncData(_url);
+                var sync = syncData(_url);
+                return sync.$asArray();
             },
             
             deleteArticle: function (articleId) {
