@@ -22,8 +22,11 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       
-      'bower_components/firebase/firebase.js',
-      'bower_components/angularfire/dist/angularfire.min.js',
+      // 'bower_components/firebase/firebase.js',
+      // 'bower_components/angularfire/angularfire.min.js',
+      
+       'test/overrides/firebase-override.js', // mock firebase
+       'test/overrides/angularfire-override.js', // mock angularfire
 
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-cookies/angular-cookies.js',
@@ -34,9 +37,11 @@ module.exports = function(config) {
 
       'bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.min.js',
 
+      'app/scripts/app.js',
       'app/scripts/**/*.js',
       // 'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      // 'test/spec/**/*.js'
+      'test/spec/controllers/saved-article-list.js'
     ],
 
     // list of files / patterns to exclude

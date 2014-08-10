@@ -9,6 +9,17 @@ angular.module('hw4App').factory('SavedArticle',
             },
             sync: function () {
                 return syncData(_url);
+            },
+            
+            deleteArticle: function (articleId) {
+                var arr = syncData(_url).$asArray();
+
+                var promise = arr.$loaded().then(function(){
+                    return arr.$remove(articleId); // returns a promise that will be resolved with a Firebase reference for the exterminated record.
+                });
+
+                return promise;
             }
+
         };
     }]);

@@ -10,18 +10,26 @@
 angular.module('hw4App')
     .controller('SavedArticleList', ['$scope', 'SavedArticle',
         function ($scope, savedArticle) {
-            var ref = savedArticle.sync();
-            var arr = ref.$asArray();
 
+            var arr = savedArticle.sync().$asArray();
             $scope.savedArticles = arr;
 
+            // function updateSavedArticleList() {
+            //     var arr = savedArticle.sync();
+            //     $scope.savedArticles = arr;
+            // }
 
-            arr.$loaded().then(function () {
-                console.log('$loaded: len: ' + arr.length);
-            });
+            // arr.$loaded().then(function () {
+            //     console.log('$loaded: len: ' + arr.length);
+            // });
 
-            $scope.onDeleteArticle = function (i) {
-                // ref.sumfin(k);
-            };
+            
+            // $scope.onDeleteArticle = function (index) {
+            //     savedArticle.deleteArticle(index)
+            //         .then(updateSavedArticleList);
+            // };
+
+            // init
+                // updateSavedArticleList();
 
         }]);

@@ -3,44 +3,56 @@ ddescribe('Add and remove article links to a list', function() {
 
     var SavedArticleListCtrl,
         SavedArticle,
-        scope;
+        scope,
+        articleId = 'fake-article-1',
+        mockArticleList = ['fake-article-0', 'fake-article-1', 'fake-article-2'];
 
     // load the controller's module
-    beforeEach(module('hw4App'));
+    beforeEach(module('hw4App', {
+        SavedArticle: jasmine.createSpyObj('SavedArticle', ['create', 'sync', 'delete'])
+    }));
 
-    it("should behave...", function() {
-        expect(true).toEqual(true);
+    beforeEach(inject(function ($rootScope, $controller, _SavedArticle_) {
+        scope = $rootScope.$new();
+        
+        SavedArticle = _SavedArticle_;
+        SavedArticle.create.andReturn(mockArticleList);
+        SavedArticle.sync.andReturn(mockArticleList);
+        SavedArticle.deleteArticle.andReturn(mockArticleList);
+        // SavedArticle.delete.andCallFake();
+
+        SavedArticleListCtrl = $controller('SavedArticleList', {$scope: scope, SavedArticle: SavedArticle});
+    }));
+
+    it("should remove the article from the user's saved list", function() {
+        var result = SavedArticle.create();
+        expect(result).toEqual(mockArticleList);
     });
     
-    // load the controller's module
-    // beforeEach(module('hw4App', {
-    //     SavedArticle: jasmine.createSpyObj('savedArticle', ['create', 'sync', 'delete']),
-    //     firebaseRef: jasmine.createSpy('firebaseRef') // 
-    // }));
+    it('should set a $scope property with a list of articles on init', function() {
 
-    // beforeEach(inject(function($rootScope, $controller, _SavedArticle_) { // , SavedArticle, mockFirebase
-    //     scope = $rootScope.new();
-    //     SavedArticle = _SavedArticle_;
-    //     SavedArticle.deleteLink.andReturn('asdfasdf');
-    //     // SavedArticle.deleteLink.andCallFake();
-    //     // SavedArticleListCtrl = $controller('SavedArticleList', {
-    //     //     $scope: scope,
-    //     //     SavedArticle: SavedArticle
-    //     // });
-    // }));
-
-    xit('should display a list of links', function() {
+        expect(scope.savedArticles).toEqual(mockArticleList);
 
         // expect(SavedArticleListCtrl).toBeDefined();
     });
 
-    it("should remove a link when the delete button is clicked", function() {
-        var id = 'myLinkId';
-        scope.deleteLink(id);
-        expect(SavedArticle.deleteLink).toHaveBeenCalledWith(id);
+    // FIXME: is this a good test?  do we care what it calls to get the job done?  probably not
+    it("should call SavedArticle.deleteArticle when scope.onDeleteArticle is called", function() {
+        scope.onDeleteArticle(articleId);
+        expect(SavedArticle.deleteArticle).toHaveBeenCalledWith(articleId);
+    });
+    
+    // FIXME: this wouldn't test anything except the mocked deleteArticle method
+    it("should remove an article from the saved list when scope.onDeleteArticle is called", function() {
+        var len = mockArticleList.length;
+
+        scope.onDeleteArticle(articleId);
+        expect(mockArticleList.length).toEqual(len - 1);
     });
 
-    xit("should take you to a nytimes page when a link is clicked", function() {
-      
+    it("should do something when a click event is fired", function() {
+      scope.clickArticle(articleId);
+      expect(SavedArticleListCtrl.onArticleClicked()).toHaveBeenCalled();
     });
 });
+
